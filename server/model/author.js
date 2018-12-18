@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const db = require('./db.js');
+const db = require('../db/db.js');
 
 module.exports = db.sequelize.define('tblvues', {
   id: {
@@ -7,17 +7,15 @@ module.exports = db.sequelize.define('tblvues', {
     primaryKey: true,
     autoIncrement: true
   },
-  title: { type: Sequelize.STRING },
   author: {
+    type: Sequelize.STRING
+  },
+  title: {
+    type: Sequelize.STRING
+  },
+  description: {
     type: Sequelize.STRING,
     unique: true,
     allowNull: false
-  },
-  description: {
-    type: Sequelize.STRING
-  },
-
-  owner: {
-    type: Sequelize.STRING
   }
 });
